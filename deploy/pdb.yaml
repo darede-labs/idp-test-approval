@@ -1,0 +1,18 @@
+
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: test-approval
+  namespace: test-approval
+  labels:
+    app: test-approval
+    app.kubernetes.io/name: test-approval
+    app.kubernetes.io/component: application
+    app.kubernetes.io/part-of: idp-test-approval
+    app.kubernetes.io/managed-by: argocd
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: test-approval
+
